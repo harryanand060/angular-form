@@ -1,0 +1,53 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30">
+        <mat-toolbar color="primary">Register</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="form-group" [formGroup]="formGroup"
+            (ngSubmit)=onSubmit()>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Full Name" formControlName="name">
+                <mat-error *ngIf="form.name.invalid || form.name.dirty || form.name.touched ">
+                    {{getError('name')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input type="text" matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="form.email.invalid || form.email.dirty || form.email.touched">
+                    {{getError('email')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Mobile</mat-label>
+                <input type="text" matInput placeholder="Mobile" formControlName="mobile">
+                <mat-error *ngIf="form.mobile.invalid || form.mobile.dirty || form.mobile.touched">
+                    {{getError('mobile')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="password">
+                <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </a>
+                <mat-error *ngIf="form.password.invalid || form.password.dirty || form.password.touched">
+                    {{getError('password')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input type="password" matInput placeholder="Confirm Password" formControlName="confirm_password">
+                <mat-error
+                    *ngIf="form.confirm_password.invalid || form.confirm_password.dirty || form.confirm_password.touched">
+                    {{getError('confirm_password')}}
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+        </form>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <a routerLink="/login">Login</a>
+            <a routerLink="/forget-password">Forget Password</a>
+        </div>
+
+    </mat-card>
+</div>

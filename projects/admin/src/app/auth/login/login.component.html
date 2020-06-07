@@ -1,0 +1,27 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30">
+        <mat-toolbar color="primary">Login</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="form-group" [formGroup]="formGroup"
+            (ngSubmit)=onSubmit()>
+            <mat-form-field>
+                <mat-label>Email Or Mobile</mat-label>
+                <input type="text" matInput placeholder="Email or Mobile" formControlName="device">
+                <mat-error *ngIf="form.device.invalid || form.device.dirty || form.device.touched ">
+                    {{getError('device')}}
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password" formControlName="password">
+                <mat-error *ngIf="form.password.invalid"> {{getError('password')}}</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+        </form>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <a routerLink="/register">Register</a>
+            <a routerLink="/forget-password">Forget Password</a>
+        </div>
+    </mat-card>
+</div>
