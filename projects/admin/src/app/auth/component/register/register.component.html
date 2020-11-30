@@ -2,7 +2,7 @@
     <mat-card fxFlex="30">
         <mat-toolbar color="primary">Register</mat-toolbar>
         <form fxLayoutAlign="stretch" fxLayout="column" class="form-group" [formGroup]="formGroup"
-            (ngSubmit)=onSubmit()>
+            (ngSubmit)=onSubmit() autocomplete="off">
             <mat-form-field>
                 <mat-label>Name</mat-label>
                 <input type="text" matInput placeholder="Full Name" formControlName="name">
@@ -20,6 +20,7 @@
             <mat-form-field>
                 <mat-label>Mobile</mat-label>
                 <input type="text" matInput placeholder="Mobile" formControlName="mobile">
+                <span matPrefix >+91&nbsp;</span>
                 <mat-error *ngIf="form.mobile.invalid || form.mobile.dirty || form.mobile.touched">
                     {{getError('mobile')}}
                 </mat-error>
@@ -45,8 +46,8 @@
             <button mat-raised-button color="primary" type="submit">Login</button>
         </form>
         <div fxLayout="row" fxLayoutAlign="space-between center">
-            <a routerLink="/login">Login</a>
-            <a routerLink="/forget-password">Forget Password</a>
+            <a routerLink="/auth/login">Login</a>
+            <a routerLink="/auth/forget-password">Forget Password</a>
         </div>
 
     </mat-card>

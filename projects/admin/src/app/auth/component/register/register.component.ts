@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonFormGroup, CommonValidation } from '../../utils/validation/common';
+import { FormGroupService } from '../../services/validation/form-group.service';
+import { IAuthMethod } from '../../interfaces/auth.interface';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit,IAuthMethod{
   public formGroup: any;
   public hide: boolean
-  constructor(private commonFormGoup: CommonFormGroup) { }
+  constructor(private commonFormGoup: FormGroupService) { }
 
   ngOnInit(): void {
     this.hide = true
     this.createForm();
   }
 
-  private createForm() {
+  public createForm() {
     this.formGroup = this.commonFormGoup.registerFormGroup;
   }
 

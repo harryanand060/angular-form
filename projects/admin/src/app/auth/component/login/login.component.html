@@ -2,10 +2,11 @@
     <mat-card fxFlex="30">
         <mat-toolbar color="primary">Login</mat-toolbar>
         <form fxLayoutAlign="stretch" fxLayout="column" class="form-group" [formGroup]="formGroup"
-            (ngSubmit)=onSubmit()>
+            (ngSubmit)=onSubmit() autocomplete="off">
             <mat-form-field>
                 <mat-label>Email Or Mobile</mat-label>
                 <input type="text" matInput placeholder="Email or Mobile" formControlName="device">
+                <span matPrefix *ngIf="mobile_icon" >+91&nbsp;</span>
                 <mat-error *ngIf="form.device.invalid || form.device.dirty || form.device.touched ">
                     {{getError('device')}}
                 </mat-error>
@@ -20,8 +21,8 @@
             <button mat-raised-button color="primary" type="submit">Login</button>
         </form>
         <div fxLayout="row" fxLayoutAlign="space-between center">
-            <a routerLink="/register">Register</a>
-            <a routerLink="/forget-password">Forget Password</a>
+            <a routerLink="/auth/register">Register</a>
+            <a routerLink="/auth/forget-password">Forget Password</a>
         </div>
     </mat-card>
 </div>

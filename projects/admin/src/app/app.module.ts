@@ -4,29 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { LoginComponent } from './auth/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms'
-import { MaterialModule } from './modules/material/material.module';
-import { CommonFormGroup, CommonValidation } from './utils/validation/common';
-import { RegisterComponent } from './auth/register/register.component';
-import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgetPasswordComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
-    MaterialModule,
-    ReactiveFormsModule
+    SharedModule
   ],
-  providers: [CommonFormGroup,CommonValidation],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
