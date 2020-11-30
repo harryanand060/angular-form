@@ -1,3 +1,15 @@
+# Install Angular CLI
+
+  npm install -g @angular/cli
+
+# Install Node dependencies
+  
+  npm install
+  
+ # RUN the project
+  
+  ng serve
+  
 # ProjectWorkspace
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
